@@ -4,7 +4,6 @@ var bs = require('browser-sync').create();
 
 var proxyMiddleware = require('http-proxy-middleware');
 var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
 
 // Get server config
 var config = require('./server');
@@ -61,7 +60,6 @@ bs.init({
         publicPath: '/',
         noInfo: true,
       }),
-      webpackHotMiddleware(bundler),
       proxyMiddleware(filter, {
         target: `http://localhost:${port}`,
         changeOrigin: true,

@@ -20,17 +20,6 @@ module.exports = function make(options) {
     new webpack.NoErrorsPlugin(),
   ];
 
-  // For client
-  if (isClient) {
-
-    // Add hot middleware
-    entry.push('webpack-hot-middleware/client');
-
-    // Add HMRE plugin
-    plugins.push(new webpack.HotModuleReplacementPlugin());
-
-  }
-
   // Add source maps and extract styles
   plugins.push(
     new ExtractTextPlugin('styles.css')
@@ -42,7 +31,7 @@ module.exports = function make(options) {
   // Styles loader
   var loader = {
     css: 'css-loader?modules&importLoaders=1&localIdentName=[local]',
-    babel: 'babel-loader?presets[]=react&presets[]=es2015&presets[]=stage-0' + (isClient ? '&presets[]=react-hmre' : ''),
+    babel: 'babel-loader?presets[]=react&presets[]=es2015&presets[]=stage-0',
   };
 
   var config = {
