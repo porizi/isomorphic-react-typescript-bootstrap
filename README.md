@@ -38,3 +38,8 @@ typings search react-dom
 ``` bash
 typings install --global --save dt~react-dom
 ```
+
+---
+maintained by
+
+![porizi logo](http://porizi.com/porizi-logo-horizontal-h50.png "Porizi Technologies")
