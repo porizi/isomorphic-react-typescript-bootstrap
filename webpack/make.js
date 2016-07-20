@@ -7,7 +7,7 @@ module.exports = function make(options) {
   var isClient = (options.target === 'web');
 
   // Init entry point with babel (always)
-  var entry = ['babel-polyfill'];
+  var entry = [/*'babel-polyfill'*/];
 
   // Init plugins with provide, define and no errors
   var plugins = [
@@ -15,9 +15,9 @@ module.exports = function make(options) {
       React: 'react'
     }),
     new webpack.DefinePlugin({
-      __CLIENT__: (options.target === 'web'),
+      __CLIENT__: (options.target === 'web')
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin()
   ];
 
   // Add source maps and extract styles
@@ -30,8 +30,7 @@ module.exports = function make(options) {
 
   // Styles loader
   var loader = {
-    css: 'css-loader?modules&importLoaders=1&localIdentName=[local]',
-    babel: 'babel-loader?presets[]=react&presets[]=es2015&presets[]=stage-0',
+    css: 'css-loader?modules&importLoaders=1&localIdentName=[local]'
   };
 
   var config = {
@@ -44,9 +43,9 @@ module.exports = function make(options) {
 
     output: {
       path: path.join(__dirname, '..', 'build'),
-      filename: path.basename(options.entry),
+      filename: path.basename(options.entry, '.tsx') + '.js',
       publicPath: '/',
-      libraryTarget: (isClient ? 'var' : 'commonjs2'),
+      libraryTarget: (isClient ? 'var' : 'commonjs2')
     },
 
     resolve: {
@@ -58,17 +57,12 @@ module.exports = function make(options) {
       loaders:
       [
         {
-          test: /\.js/,
-          loader: loader.babel,
-          exclude: /node_modules/
-        },
-        {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         },
         {
           test: /\.tsx?$/,
-          loader: `${loader.babel}!ts-loader?silent=true`,
+          loader: 'ts-loader?silent=true',
           exclude: /node_modules/
         },
         {

@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { browserHistory, Router } from 'react-router';
-import routes from './routes';
+import routes from './routes/index';
 
 // Render the application
 ReactDOM.render(

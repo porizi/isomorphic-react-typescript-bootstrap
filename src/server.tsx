@@ -1,15 +1,13 @@
-import path from 'path';
-import http from 'http';
-import express from 'express';
-import webpack from 'webpack';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import * as http from 'http';
+import * as express from 'express';
+import * as React from 'react';
+import * as ReactDOMServer from 'react-dom/server';
 import { Router, RouterContext, match } from 'react-router';
 import { getAllPageHeadCSS } from './utils/css_styler';
 import routes from './routes';
 
 const release = (process.env.NODE_ENV === 'production');
-const port = (parseInt(process.env.PORT, 10) || 3000) - !release;
+const port = (parseInt(process.env.PORT, 10) || 3000) - (!release as any);
 const app = express();
 
 // Set view engine
@@ -20,14 +18,14 @@ app.use('/client.js', express.static('./build/client.js'));
 app.use('/images', express.static('./public/images'));
 
 // Route handler that rules them all!
-app.get('*', (req, res) => {
+app.get('*', (req: any, res: any) => {
 
   // Do a router match
   match({
     routes: (<Router>{routes}</Router>),
     location: req.url,
   },
-  (err, redirect, props) => {
+  (err: any, redirect: any, props: any) => {
     // Some sanity checks
     if (err) {
       return res.status(500).send(err.message);
@@ -49,7 +47,7 @@ app.get('*', (req, res) => {
 
 const server = http.createServer(app);
 
-server.listen(port, err => {
+server.listen(port, (err:any) => {
   if (err) throw err;
   console.info(`[🚀 ] Server started on port ${port}`); // eslint-disable-line
 });
