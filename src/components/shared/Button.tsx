@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { addCSSToHead } from '../../utils/css_styler';
+import {addComponentCSS} from '../../utils/css_styler';
 
-addCSSToHead(
+addComponentCSS({
   //language=CSS
-  `
+  xsMin: `
   .pr-button {
     background: dodgerblue;
     border: 1px solid dodgerblue;
@@ -12,7 +12,7 @@ addCSSToHead(
     margin: 10px 15px;
   }
   `
-);
+});
 
 interface IButton {
   onClick: (val: any) => void

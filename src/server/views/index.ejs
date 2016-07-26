@@ -4,18 +4,14 @@
     <meta charset="utf-8">
     <title>Porizi</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <% if (includeStyles) { %>
-      <link rel="stylesheet" type="text/css" href="/styles.css">
-    <% } %>
-    <% if (pageHeadCSS) { %>
-      <style> <%- pageHeadCSS %> </style>
-    <% } %>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/components.css">
   </head>
   <body>
+
     <div id="root"><%- renderedRoot %></div>
-    <% if (includeClient) { %>
-      <script src="/client.js"></script>
-    <% } %>
+
+    <script src="/client.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
