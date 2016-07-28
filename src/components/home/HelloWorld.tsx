@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { addCSSToHead } from '../../utils/css_styler';
+import {addComponentCSS} from '../../utils/css_styler';
 
-addCSSToHead(
+addComponentCSS({
   //language=CSS
-  `
+  xsMin: `
   .pr-hello-world__title {
     margin: 10px 15px;
   }
   `
-);
+});
 
 interface IHelloWorld {
   helloString: string

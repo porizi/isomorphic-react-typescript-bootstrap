@@ -3,7 +3,7 @@ import * as express from 'express';
 import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import { Router, RouterContext, match } from 'react-router';
-import { getAllPageHeadCSS } from './utils/css_styler';
+import {getAllComponentsCSS} from './utils/css_styler';
 import routes from './routes';
 
 const release = (process.env.NODE_ENV === 'production');
@@ -16,6 +16,12 @@ app.set('view engine', 'ejs');
 app.use('/styles.css', express.static('./build/styles.css'));
 app.use('/client.js', express.static('./build/client.js'));
 app.use('/images', express.static('./public/images'));
+
+// Endpoint to get all React components CSS
+app.get('/components.css', (req, res) => {
+  res.setHeader('content-type', 'text/css');
+  res.send(getAllComponentsCSS());
+});
 
 // Route handler that rules them all!
 app.get('*', (req: any, res: any) => {
@@ -37,9 +43,6 @@ app.get('*', (req: any, res: any) => {
 
     // Respond with EJS template
     res.render('index', {
-      includeStyles: true,
-      includeClient: true,
-      pageHeadCSS: getAllPageHeadCSS(),
       renderedRoot: ReactDOMServer.renderToString(<RouterContext {...props} />)
     });
   });
