@@ -4,9 +4,10 @@
   "description": "Bootstrap repo for isomorphic React.js apps with Typescript.",
   "scripts": {
     "start": "node ./build/server.js",
-    "dev": "node ./webpack/dev.js"
+    "dev": "node ./webpack/dev.js",
+    "watch" : "node ./node_modules/webpack/bin/webpack.js --watch --config ./webpack/server.js"
   },
-  "author": "Porizi | Diego Castillo <diegocasmo@gmail.com>",
+  "author": "Porizi Technologies | Diego Castillo <diegocasmo@gmail.com>",
   "dependencies": {
     "bootstrap": "^3.3.6",
     "css-loader": "^0.23.1",
