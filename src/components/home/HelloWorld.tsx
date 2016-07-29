@@ -3,7 +3,7 @@ import {addComponentCSS} from '../../utils/css_styler';
 
 addComponentCSS({
   //language=CSS
-  xsMin: `
+  default: `
   .pr-hello-world__title {
     margin: 10px 15px;
   }

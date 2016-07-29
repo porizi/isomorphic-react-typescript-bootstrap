@@ -3,7 +3,7 @@ import {addComponentCSS} from '../../utils/css_styler';
 
 addComponentCSS({
   //language=CSS
-  xsMin: `
+  default: `
   .pr-button {
     background: dodgerblue;
     border: 1px solid dodgerblue;

@@ -6,16 +6,18 @@ let componentsCSS = '';
 
 // Media queries width in px configuration
 const MEDIA_QUERIES_WIDTH_CONFIG: IDictionary<string> = {
-  xsMin : '320px', // Custom, iPhone Retina
-  smMin : '480px', // Extra Small Devices, Phones
-  mdMin : '768px', // Small Devices, Tablets
-  lgMin : '992px', // Medium Devices, Desktops
-  xlgMin: '1200px' // Large Devices, Wide Screens
+  default: '0px',   // Default CSS
+  xsMin  : '320px', // Custom, iPhone Retina
+  smMin  : '480px', // Extra Small Devices, Phones
+  mdMin  : '768px', // Small Devices, Tablets
+  lgMin  : '992px', // Medium Devices, Desktops
+  xlgMin : '1200px' // Large Devices, Wide Screens
 };
 
 // Supported media queries options
 interface IMediaQueries {
-  xsMin  : string
+  default: string
+  xsMin? : string
   smMin? : string
   mdMin? : string
   lgMin? : string
