@@ -13,9 +13,9 @@ webpack --config ./webpack/release.js
     - ``routes/``: Defines the routes for the application using ``react-router``.
     - ``utils/``: Helper methods should be placed under this directory.
     - ``server/``: Contains files which have logic that is executed on the server side.
-  
+
 ## CSS Usage:
-  - Generic CSS which does not apply to a single component can be place in the `` src/styles.css`` file. React components should use the ``addCSSToHead`` utility method for their CSS styles definintion. Check the ``src/components/home/HelloWorld.tsx`` component for an example.
+  - Generic CSS which does not apply to a single component can be place in the ``src/styles.css`` file. React components should use the ``addComponentCSS`` utility method for their CSS styles definintion. Check the ``src/components/home/HelloWorld.tsx`` component for an example.
 
 ## Run development using client and server rendering:
 ``` bash
