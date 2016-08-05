@@ -10,8 +10,9 @@ export class Home extends React.Component<any,any> {
     this.onClick = this.onClick.bind(this);
   }
 
-  public onClick(event: any): void {
-    this.setState({ helloString: 'Hello World!' });
+  public onClick(): void {
+    const helloString: string = (this.state.helloString) ? '' : 'Hello World!';
+    this.setState({ helloString: helloString });
   }
 
   public render(): JSX.Element {

@@ -14,11 +14,11 @@ addComponentCSS({
   `
 });
 
-interface IButton {
+interface IButtonProps {
   onClick: (val: any) => void
 }
 
-export class Button extends React.Component<IButton, any> {
+export class Button extends React.Component<IButtonProps, any> {
   public render(): JSX.Element {
     const {onClick} = this.props;
     return (

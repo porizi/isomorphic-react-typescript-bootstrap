@@ -10,11 +10,11 @@ addComponentCSS({
   `
 });
 
-interface IHelloWorld {
+interface IHelloWorldProps {
   helloString: string
 }
 
-export class HelloWorld extends React.Component<IHelloWorld, any> {
+export class HelloWorld extends React.Component<IHelloWorldProps, any> {
   public render(): JSX.Element {
     const {helloString} = this.props;
     return (
